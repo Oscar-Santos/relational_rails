@@ -39,6 +39,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry'
   gem 'simplecov'
+  gem 'capybara'
+  gem 'launchy'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
