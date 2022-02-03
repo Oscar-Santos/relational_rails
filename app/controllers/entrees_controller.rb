@@ -1,5 +1,4 @@
-class EntreeController < ApplicationController
-
+class EntreesController < ApplicationController
   def index
     @entrees = Entree.all
   end
