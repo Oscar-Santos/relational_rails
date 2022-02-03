@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_02_225946) do
+ActiveRecord::Schema.define(version: 2022_02_03_022708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bands", force: :cascade do |t|
+    t.string "name"
+    t.integer "founded"
+    t.string "genre"
+    t.boolean "currently_active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "chefs", force: :cascade do |t|
     t.string "name"
@@ -29,6 +38,16 @@ ActiveRecord::Schema.define(version: 2022_02_02_225946) do
     t.string "name"
     t.boolean "hot_dish"
     t.integer "calories"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "musicians", force: :cascade do |t|
+    t.integer "band_id"
+    t.string "name"
+    t.string "instrument"
+    t.boolean "founding_member"
+    t.decimal "born"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
