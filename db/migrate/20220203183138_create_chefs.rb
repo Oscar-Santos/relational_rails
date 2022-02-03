@@ -5,7 +5,7 @@ class CreateChefs < ActiveRecord::Migration[5.2]
       t.integer :age
       t.boolean :is_male
       t.integer :years_employed
-      t.timestamps 
+      t.timestamps
     end
   end
 end
