@@ -11,7 +11,7 @@ RSpec.describe 'Band show action' do
   # Then I see the parent with that id including the parent's attributes:
   # - data from each column that is on the parent table
 
-  it 'User Story 2, Parent Show' do
+  it 'User Story 2, Parent Show displays all Band information' do
     beatles = Band.create!(name:'The Beatles', founded:1960, genre:'rock & roll', currently_active:false)
     sleep 2
     devo = Band.create!(name:'DEVO', founded:1973, genre:'new wave', currently_active:true)
@@ -20,6 +20,8 @@ RSpec.describe 'Band show action' do
     visit "/bands/#{beatles.id}"
     save_and_open_page
 
+    expect(page).to have_content(beatles.id)
+    expect(page).to_not have_content(devo.id)
     expect(page).to have_content(beatles.name)
     expect(page).to_not have_content(devo.name)
     expect(page).to have_content(beatles.founded)
