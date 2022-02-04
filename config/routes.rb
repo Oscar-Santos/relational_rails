@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   get '/bands', to: 'bands#index'
   get '/bands/:id', to: 'bands#show'
   get '/musicians', to: 'musicians#index'
-  get 'musicians/:id', to: 'musicians#show'
+  get '/musicians/:id', to: 'musicians#show'
+  get '/bands/:band_id/musicians', to: 'bands#show_musicians'
 end
