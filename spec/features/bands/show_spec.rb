@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+ 
 RSpec.describe 'Band show action' do
 
   # before :each do
