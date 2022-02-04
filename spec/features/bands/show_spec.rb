@@ -1,10 +1,6 @@
 require 'rails_helper'
- 
-RSpec.describe 'Band show action' do
 
-  # before :each do
-  #   @metallica = Band.create!(name:'Metallica', founded:1981, genre:'metal', currently_active:true)
-  # end
+RSpec.describe 'Band show action' do
 
   # As a visitor
   # When I visit '/parents/:id'
