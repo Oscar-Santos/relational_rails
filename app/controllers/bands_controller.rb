@@ -1,6 +1,8 @@
 class BandsController < ApplicationController
   def index
-    @bands = Band.all
+    # binding.pry
+    # @bands = Band.all.order("updated_at desc")
+    @band_names = Band.order("updated_at desc").pluck(:name)
   end
 
   def show
