@@ -20,7 +20,7 @@ RSpec.describe 'the musicians index page' do
     john = beatles.musicians.create!(name:'John Lennon', instrument:'guitar, vocals', founding_member:true, born:1940)
 
     visit "/bands/#{metallica.id}/musicians"
-    #save_and_open_page
+    save_and_open_page
 
     expect(page).to have_content(metallica.name)
 
