@@ -8,7 +8,7 @@ RSpec.describe 'the musicians index page' do
 
 
 
-  it 'User Story 3, Child Index' do
+  it 'User Story 5, Parent Children Index' do
     metallica = Band.create!(name:'Metallica', founded:1981, genre:'metal', currently_active:true)
     beatles = Band.create!(name:'The Beatles', founded:1960, genre:'rock & roll', currently_active:false)
 
