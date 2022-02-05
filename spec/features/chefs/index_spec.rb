@@ -9,10 +9,14 @@ require 'rails_helper'
 
 RSpec.describe 'chef index' do
   it ' displays name of chef' do
-    chef = Chef.create!(name: 'Jose Beltran', age: 45, is_male: true, years_employed: 8)
+    chef_1 = Chef.create!(name: 'Jose Beltran', age: 45, is_male: true, years_employed: 8)
+    chef_2 = Chef.create!(name: 'Gaston Acurio', age: 39, is_male: true, years_employed: 11)
+    chef_3 = Chef.create!(name: 'Lena Rojas', age: 29, is_male: false, years_employed: 8)
 
     visit "/chefs/"
-
-    expect(page).to have_content(chef.name)
+    
+    expect(page).to have_content(chef_1.name)
+    expect(page).to have_content(chef_2.name)
+    expect(page).to have_content(chef_3.name)
   end
 end
