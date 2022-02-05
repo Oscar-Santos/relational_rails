@@ -1,4 +1,4 @@
 class Chef < ApplicationRecord
   has_many :entrees
-  validates_presence_of :name
+  validates :name, presence: true
 end
