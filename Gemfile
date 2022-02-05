@@ -42,6 +42,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'capybara'
   gem 'launchy'
+  gem 'orderly'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
