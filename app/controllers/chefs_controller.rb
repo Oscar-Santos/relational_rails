@@ -1,6 +1,6 @@
 class ChefsController < ApplicationController
   def index
-    @chefs = Chef.all
+    @chefs = Chef.order_by_creation
   end
 
   def show
