@@ -14,7 +14,7 @@ RSpec.describe 'Band show action' do
 
 
     visit "/bands/#{beatles.id}"
-    save_and_open_page
+    # save_and_open_page
 
     expect(page).to have_content(beatles.id)
     expect(page).to_not have_content(devo.id)
@@ -31,4 +31,20 @@ RSpec.describe 'Band show action' do
     expect(page).to have_content(beatles.updated_at)
     expect(page).to_not have_content(devo.updated_at)
   end
+
+  it 'User Story 7, Parent Child Count' do
+    beatles = Band.create!(name:'The Beatles', founded:1960, genre:'rock & roll', currently_active:false)
+    beatles.musicians.create!(name:'John Lennon', instrument:'guitar, vocals', founding_member:true, born:1940)
+    beatles.musicians.create!(name:'George Harrison', instrument:'lead guitar, vocals', founding_member:true, born:1943)
+    beatles.musicians.create!(name:'Paul McCartney', instrument:'bass, vocals', founding_member:true, born:1942)
+    beatles.musicians.create!(name:'Ringo Starr', instrument:'drums, vocals', founding_member:false, born:1940)
+
+    visit "/bands/#{beatles.id}"
+    save_and_open_page
+
+    member_count = Musician.where(band_id: "#{beatles.id}").count
+
+    expect(page).to have_content("#{member_count} musician records available.")
+  end
+
 end
