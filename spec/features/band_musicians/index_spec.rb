@@ -19,7 +19,7 @@ RSpec.describe 'the musicians index page' do
   it 'User Story 5, Parent Children Index' do
 
     visit "/bands/#{@metallica.id}/musicians"
-    #save_and_open_page
+    # save_and_open_page
 
     expect(page).to have_content(@metallica.name)
 
@@ -41,10 +41,21 @@ RSpec.describe 'the musicians index page' do
 
     expect(page).to have_link("Musicians Index")
     click_link "Musicians Index"
+    # save_and_open_page
 
     expect(page).to have_content(@john.name)
     expect(page).to have_content(@lars.name)
-    save_and_open_page
-
   end
+
+  it 'User Story 9, Parent Index Link' do
+    visit "/bands/#{@metallica.id}/musicians"
+
+    expect(page).to have_link("Bands Index")
+    click_link "Bands Index"
+    # save_and_open_page
+
+    expect(page).to have_content(@metallica.name)
+    expect(page).to have_content(@beatles.name)
+  end
+
 end
