@@ -40,7 +40,7 @@ RSpec.describe 'Band show action' do
     beatles.musicians.create!(name:'Ringo Starr', instrument:'drums, vocals', founding_member:false, born:1940)
 
     visit "/bands/#{beatles.id}"
-    save_and_open_page
+    #save_and_open_page
 
     member_count = Musician.where(band_id: "#{beatles.id}").count
 
