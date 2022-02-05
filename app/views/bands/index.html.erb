@@ -1,5 +1,6 @@
+<p><a href="/musicians">Musicians Index</a> | <a href="/bands">Bands Index</a></p>
 <h1>Bands</h1>
 
-<% @bands.each do |band| %>
-  <h3><%= band.name %></h3>
+<% @band_names.each_with_index do |name, index| %>
+<h3 id="band-<%= index %>"><%= name %></h3>
 <% end %>
