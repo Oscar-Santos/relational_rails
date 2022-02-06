@@ -6,4 +6,17 @@ class ChefsController < ApplicationController
   def show
     @chef = Chef.find(params[:id])
   end
+
+  def create
+    @chef = Chef.create(chef_params)
+    redirect_to '/chefs'
+  end
+
+  def new
+  end
+
+  private
+  def chef_params
+    params.permit(:name, :age, :is_male, :years_employed)
+  end
 end

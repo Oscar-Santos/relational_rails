@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/chefs/:id' , to: 'chefs#show'
   get '/entrees' , to: 'entrees#index'
   get '/entrees/:id' , to: 'entrees#show'
-  # get '/chefs/:chef_id/entrees' , to: 'chefs_entrees#index'
-
+  get '/chefs/:chef_id/entrees' , to: 'chefs_entrees#index'
+  
+  post '/chefs' , to: 'chefs#create'
+  get '/chefs/new' , to: 'chefs#new'
 end
