@@ -8,7 +8,7 @@ require 'rails_helper'
 # Then I see the name of each chef record in the system
 
 RSpec.describe 'chef index' do
-  it ' displays name of chef' do
+  it 'displays name of chef' do
     chef_1 = Chef.create!(name: 'Jose Beltran', age: 45, is_male: true, years_employed: 8)
     chef_2 = Chef.create!(name: 'Gaston Acurio', age: 39, is_male: true, years_employed: 11)
     chef_3 = Chef.create!(name: 'Lena Rojas', age: 29, is_male: false, years_employed: 8)
@@ -37,4 +37,25 @@ RSpec.describe 'chef index' do
     expect(chef_1.name).to appear_before(chef_2.name)
     expect(chef_2.name).to appear_before(chef_3.name)
   end
+
+#   User Story 9, Parent Index Link
+#
+# As a visitor
+# When I visit any page on the site
+# Then I see a link at the top of the page that takes me to the Chef Index
+
+  it 'wip it displays the link at the top of the page' do
+  gaston = Chef.create!(name: 'Gaston Acurio', age: 40, is_male: true, years_employed: 11)
+  virgilio = Chef.create!(name: 'Virgilio Morales', age: 33, is_male: true, years_employed: 9)
+
+  entree_1 = gaston.entrees.create!(name: 'Papa rellena', hot_dish: true, calories: 367)
+  entree_2 = virgilio.entrees.create!(name: 'Ocopa', hot_dish: false, calories: 199)
+
+  visit '/chefs'
+  
+  expect(page).to have_link('Chef Index')
+  click_on('Chef Index')
+  expect(page).to have_current_path('/chefs')
+end
+
 end
