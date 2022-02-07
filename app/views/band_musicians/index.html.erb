@@ -1,7 +1,7 @@
 <p><a href="/musicians">Musicians Index</a> | <a href="/bands">Bands Index</a></p>
 <h1><%= @band.name %> Members</h1>
 <br>
-<% @band_musicians.each do |musician| %>
+<% @band.musicians.each do |musician| %>
 <h2><%= musician.name %></h2>
 <h3><%= musician.instrument %></h3>
 <br>
