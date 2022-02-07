@@ -1,0 +1,17 @@
+<h1>Add a New Band</h1>
+
+<%= form_with url: '/bands', method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <br>
+  <%= form.label :founded, "Year Founded" %>
+  <%= form.text_field :founded %>
+  <br>
+  <%= form.label :genre %>
+  <%= form.text_field :genre %>
+  <br>
+  <%= form.label :currently_active, "Currently Active" %>
+  <%= form.text_field :currently_active %>
+  <br>
+  <%= form.submit "Create Band" %>
+<% end %>

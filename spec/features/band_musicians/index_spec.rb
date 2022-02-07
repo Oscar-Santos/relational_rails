@@ -15,7 +15,6 @@ RSpec.describe 'the musicians index page' do
 
   end
 
-
   it 'User Story 5, Parent Children Index' do
 
     visit "/bands/#{@metallica.id}/musicians"
