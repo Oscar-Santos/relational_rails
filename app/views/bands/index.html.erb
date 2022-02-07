@@ -1,8 +1,6 @@
 <h1>Bands</h1>
 
-<%= sorted_band_names = @band_names.sort %>
-
-<% @band_names.each_with_index do |name, index| %>
+<% Band.sort.each_with_index do |name, index| %>
 <h3 id="band-<%= index %>"><%= name %></h3>
 <% end %>
 
