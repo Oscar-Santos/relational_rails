@@ -57,26 +57,32 @@ RSpec.describe 'the bands index page' do
     expect(page).to have_content(@band_3.name)
   end
 
-  xit 'User Story 17, Parent Update from Parent Index Page' do
+  it 'User Story 17, Parent Update from Parent Index Page' do
     visit "/bands"
 
     within("#band-0") do
       expect(page).to have_link("edit band")
       click_link "edit band"
 
-      expect(current_path).to eq("/bands/#{band_1.id}/edit")
+      expect(current_path).to eq("/bands/#{@band_3.id}/edit")
     end
+    
+    visit "/bands"
+
     within("#band-1") do
       expect(page).to have_link("edit band")
       click_link "edit band"
 
-      expect(current_path).to eq("/bands/#{band_2.id}/edit")
+      expect(current_path).to eq("/bands/#{@band_2.id}/edit")
     end
+
+    visit "/bands"
+
     within("#band-2") do
       expect(page).to have_link("edit band")
       click_link "edit band"
 
-      expect(current_path).to eq("/bands/#{band_3.id}/edit")
+      expect(current_path).to eq("/bands/#{@band_1.id}/edit")
     end
 
   end
