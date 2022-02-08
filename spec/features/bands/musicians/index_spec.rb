@@ -57,4 +57,23 @@ RSpec.describe 'the musicians index page' do
     expect(page).to have_content(@beatles.name)
   end
 
+
+  it 'User Story 16, Sort Parents Children in Alphabetical Order by name' do
+    visit "/bands/#{@metallica.id}/musicians"
+
+    within("#musician-0") do
+      expect(page).to have_content(@cliff.name)
+    end
+    within("#musician-1") do
+      expect(page).to have_content(@james.name)
+    end
+    within("#musician-2") do
+      expect(page).to have_content(@kirk.name)
+    end
+    within("#musician-3") do
+      expect(page).to have_content(@lars.name)
+    end
+
+  end
+
 end
