@@ -1,4 +1,4 @@
-<h1>Editing this Band</h1>
+<h1>Editing <%= @band.name %></h1>
 
 <%= form_with url: "/bands/#{@band.id}", method: :patch, local: true do |form| %>
   <%= form.label :name, "Band Name: " %>

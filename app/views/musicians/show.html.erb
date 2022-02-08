@@ -3,6 +3,8 @@
 <h3>Born in <%= @musician.born %></h3>
 <h3>Founding Member: <%= @musician.founding_member %></h3>
 
+<p><a href=<%= "/musicians/#{@musician.id}/edit" %>>Edit Musician</a></p>
+
 <p>record #<%= @musician.id %>
 <p>record created <%= @musician.created_at %></p>
 <p>udated <%= @musician.updated_at %></p>
