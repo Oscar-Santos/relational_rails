@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'the bands new feature' do
+RSpec.describe 'the bands#new feature' do
 
   it 'User Story 11, Parent Creation' do
     visit '/bands'

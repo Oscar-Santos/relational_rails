@@ -11,7 +11,7 @@ RSpec.describe 'Band show action' do
     @devo = Band.create!(name:'DEVO', founded:1973, genre:'new wave', currently_active:true)
     @mark = @devo.musicians.create!(name:'Mark Mothersbaugh', instrument:'synthesizers, vocals', founding_member: true, born: 1950)
   end
-
+ 
   it 'User Story 2, Parent Show displays all Band information' do
     visit "/bands/#{@beatles.id}"
     # save_and_open_page

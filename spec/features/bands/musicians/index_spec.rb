@@ -18,7 +18,7 @@ RSpec.describe 'the musicians index page' do
   it 'User Story 5, Parent Children Index' do
 
     visit "/bands/#{@metallica.id}/musicians"
-    save_and_open_page
+    # save_and_open_page
 
     expect(page).to have_content(@metallica.name)
 

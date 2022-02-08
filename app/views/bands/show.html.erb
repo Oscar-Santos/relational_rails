@@ -4,6 +4,8 @@
 <h3><%= Musician.bandmate_count(@band.id) %> musician records available.</h3>
 <p><a href="/bands/<%= "#{@band.id}" %>/musicians">see all musicians in <%= "#{@band.name}" %></a></p>
 
+<p><a href=<%= "/bands/#{@band.id}/edit" %>>Edit Band</a></p>
+
 <p>record #<%= @band.id %>
 <p>record created <%= @band.created_at %></p>
 <p>udated <%= @band.updated_at %></p>

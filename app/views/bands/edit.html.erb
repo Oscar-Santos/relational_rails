@@ -1,0 +1,17 @@
+<h1>Editing this Band</h1>
+
+<%= form_with url: "/bands/#{@band.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name, "Band Name: " %>
+  <%= form.text_field :name, placeholder: "#{@band.name}" %>
+  <br>
+  <%= form.label :founded, "Year Founded: " %>
+  <%= form.text_field :founded, placeholder: "#{@band.founded}" %>
+  <br>
+  <%= form.label :genre, "Genre: " %>
+  <%= form.text_field :genre, placeholder: "#{@band.genre}" %>
+  <br>
+  <%= form.label :currently_active, "Currently Active? " %>
+  <%= form.text_field :currently_active, placeholder: "#{@band.currently_active}" %>
+  <br>
+  <%= form.submit "Update Band" %>
+<% end %>
