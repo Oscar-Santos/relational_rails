@@ -5,4 +5,5 @@ class Band < ApplicationRecord
   def self.sort
     order("updated_at desc").pluck(:name)
   end
+
 end

@@ -4,7 +4,6 @@ class BandsController < ApplicationController
 
   def show
     @band = Band.find(params[:id])
-    @member_count = Musician.where(band_id: params[:id]).count
   end
 
   def new
