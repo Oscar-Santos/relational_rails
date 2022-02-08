@@ -3,6 +3,10 @@ class Musician < ApplicationRecord
   validates_presence_of :name
 
   def self.bandmate_count(band_key)
-    Musician.where(band_id: band_key).count
+    where(band_id: band_key).count
+  end
+
+  def self.founders_only
+    where(founding_member: true)
   end
 end

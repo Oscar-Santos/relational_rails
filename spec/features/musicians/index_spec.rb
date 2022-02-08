@@ -21,12 +21,12 @@ RSpec.describe 'the musicians index page' do
     expect(page).to have_content(@bon.name)
     expect(page).to have_content(@bon.instrument)
     expect(page).to have_content(@bon.band.name)
-    expect(page).to have_content(@cliff.name)
-    expect(page).to have_content(@cliff.instrument)
-    expect(page).to have_content(@cliff.band.name)
-    expect(page).to have_content(@kirk.name)
-    expect(page).to have_content(@kirk.instrument)
-    expect(page).to have_content(@kirk.band.name)
+    # expect(page).to have_content(@cliff.name)
+    # expect(page).to have_content(@cliff.instrument)
+    # expect(page).to have_content(@cliff.band.name)
+    # expect(page).to have_content(@kirk.name)
+    # expect(page).to have_content(@kirk.instrument)
+    # expect(page).to have_content(@kirk.band.name)
   end
 
   it 'User Story 8, Child Index Link' do
@@ -35,11 +35,6 @@ RSpec.describe 'the musicians index page' do
     expect(page).to have_link("Musicians Index")
     click_link "Musicians Index"
     # save_and_open_page
-
-    expect(page).to have_content(@angus.name)
-    expect(page).to have_content(@bon.name)
-    expect(page).to have_content(@cliff.name)
-    expect(page).to have_content(@kirk.name)
   end
 
   it 'User Story 9, Parent Index Link' do
@@ -53,4 +48,14 @@ RSpec.describe 'the musicians index page' do
     expect(page).to have_content(@metallica.name)
   end
 
+  it 'User Story 15, Child Index only shows `true` Records' do
+    visit "/musicians"
+
+    expect(page).to_not have_content('false')
+
+    expect(page).to have_content(@angus.name)
+    expect(page).to have_content(@bon.name)
+    expect(page).to_not have_content(@cliff.name)
+    expect(page).to_not have_content(@kirk.name)
+  end
 end

@@ -11,7 +11,7 @@ RSpec.describe 'Band show action' do
     @devo = Band.create!(name:'DEVO', founded:1973, genre:'new wave', currently_active:true)
     @mark = @devo.musicians.create!(name:'Mark Mothersbaugh', instrument:'synthesizers, vocals', founding_member: true, born: 1950)
   end
- 
+
   it 'User Story 2, Parent Show displays all Band information' do
     visit "/bands/#{@beatles.id}"
     # save_and_open_page
@@ -47,11 +47,7 @@ RSpec.describe 'Band show action' do
     expect(page).to have_link("Musicians Index")
     click_link "Musicians Index"
     # save_and_open_page
-
-    expect(page).to have_content(@john.name)
-    expect(page).to have_content(@george.name)
-    expect(page).to have_content(@paul.name)
-    expect(page).to have_content(@ringo.name)
+    expect(current_path).to eq("/musicians")
   end
 
   it 'User Story 9, Parent Index Link' do

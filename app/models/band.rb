@@ -7,3 +7,4 @@ class Band < ApplicationRecord
   end
 
 end
+ 
