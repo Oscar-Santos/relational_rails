@@ -1,9 +1,7 @@
 <h1>Bands</h1>
 
-<% Band.sort.each_with_index do |name, index| %>
-<h3 id="band-<%= index %>"><%= name %></h3>
+<% Band.sort.each_with_index do |band, index| %>
+<h3 id="band-<%= index %>"><%= band.name %></h3>
 <% end %>
 
 <p><a href="/bands/new">New Band</a></p>
-
- 

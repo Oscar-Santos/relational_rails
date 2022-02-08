@@ -9,7 +9,8 @@ RSpec.describe Band, type: :model do
     @band_2 = Band.create!(name:'The Beatles', founded:1960, genre:'rock & roll', currently_active:false)
     @band_3 = Band.create!(name:'AC/DC', founded:1973, genre:'hard rock', currently_active:false)
 
-    expect(Band.sort).to eq(['AC/DC', 'The Beatles', 'Metallica'])
+    # expect(Band.sort).to eq(['AC/DC', 'The Beatles', 'Metallica'])
+    expect(Band.sort).to eq([@band_3, @band_2, @band_1])
   end
 
   it 'User Story 16, Sort Parents Children in Alphabetical Order by name' do

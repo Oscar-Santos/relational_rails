@@ -73,7 +73,5 @@ RSpec.describe 'the musicians index page' do
     within("#musician-3") do
       expect(page).to have_content(@lars.name)
     end
-
   end
-
 end

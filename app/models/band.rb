@@ -3,7 +3,8 @@ class Band < ApplicationRecord
   validates_presence_of :name
 
   def self.sort
-    order("updated_at desc").pluck(:name)
+    # order("updated_at desc").pluck(:name)
+    order("updated_at desc")
   end
 
   def self.sort_members(band)
@@ -11,4 +12,3 @@ class Band < ApplicationRecord
   end
 
 end
- 
