@@ -24,7 +24,7 @@ class BandsController < ApplicationController
     redirect_to "/bands/#{params[:id]}"
   end
 
-  private
+  private 
 
     def band_params
       # params.permit(:name, :founded, :genre, :currently_active)
