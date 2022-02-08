@@ -44,7 +44,7 @@ RSpec.describe 'chef index' do
 # When I visit any page on the site
 # Then I see a link at the top of the page that takes me to the Chef Index
 
-  it 'wip it displays the link at the top of the page' do
+  it 'it displays the link at the top of the page' do
   gaston = Chef.create!(name: 'Gaston Acurio', age: 40, is_male: true, years_employed: 11)
   virgilio = Chef.create!(name: 'Virgilio Morales', age: 33, is_male: true, years_employed: 9)
 
@@ -52,7 +52,7 @@ RSpec.describe 'chef index' do
   entree_2 = virgilio.entrees.create!(name: 'Ocopa', hot_dish: false, calories: 199)
 
   visit '/chefs'
-  
+
   expect(page).to have_link('Chef Index')
   click_on('Chef Index')
   expect(page).to have_current_path('/chefs')
