@@ -1,6 +1,6 @@
 <h1><%= @band.name %> Members</h1>
 <br>
-<% Band.sort_members(@band).each_with_index do |musician, index| %>
+<% @band.sort_members.each_with_index do |musician, index| %>
 <div id="musician-<%= index %>">
 <h2><%= musician.name %></h2>
 <h3><%= musician.instrument %></h3>

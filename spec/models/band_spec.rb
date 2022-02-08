@@ -21,7 +21,8 @@ RSpec.describe Band, type: :model do
     metallica.musicians.create!(name:'James Hetfield', instrument:'rhythm guitar, lead vocals', founding_member:true, born:1963)
     metallica.musicians.create!(name:'Lars Ulrich', instrument:'drums', founding_member:true, born:1963)
 
-    sorted = Band.sort_members(metallica)
+    # sorted = Band.sort_members(metallica)
+    sorted = metallica.sort_members
 
     expect(sorted[0].name).to eq('Cliff Burton')
     expect(sorted[1].name).to eq('James Hetfield')

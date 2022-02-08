@@ -7,8 +7,11 @@ class Band < ApplicationRecord
     order("updated_at desc")
   end
 
-  def self.sort_members(band)
-    band.musicians.order(:name)
+  # def self.sort_members(band)
+  #   band.musicians.order(:name)
+  # end
+  def sort_members
+    self.musicians.order(:name)
   end
 
 end
