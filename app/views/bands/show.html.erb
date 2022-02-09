@@ -1,9 +1,10 @@
-<p><a href="/musicians">Musicians Index</a> | <a href="/bands">Bands Index</a></p>
 <h1><%= @band.name %></h1>
 <h2>A <%= @band.genre %> band founded in <%= @band.founded %></h2>
 <h3>Currently Active: <%= @band.currently_active %></h3>
-<h3><%= @member_count %> musician records available.</h3>
+<h3><%= Musician.bandmate_count(@band.id) %> musician records available.</h3>
 <p><a href="/bands/<%= "#{@band.id}" %>/musicians">see all musicians in <%= "#{@band.name}" %></a></p>
+
+<p><a href=<%= "/bands/#{@band.id}/edit" %>>Edit Band</a></p>
 
 <p>record #<%= @band.id %>
 <p>record created <%= @band.created_at %></p>

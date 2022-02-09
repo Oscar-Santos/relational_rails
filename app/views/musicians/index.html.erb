@@ -1,8 +1,10 @@
-<p><a href="/musicians">Musicians Index</a> | <a href="/bands">Bands Index</a></p>
 <h1>Musicians</h1>
 <br>
-<% @musicians.each do |musician| %>
+<% Musician.founders_only.each do |musician| %>
+  <div id="musician-<%= musician.id %>">
   <h2><%= musician.name %></h2>
   <h3><%= musician.instrument %> - <%= musician.band.name %></h3>
+  <p><a href="/musicians/<%= musician.id %>/edit">edit musician</a></p>
   <br>
+  </div>
 <% end %>

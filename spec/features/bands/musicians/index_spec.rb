@@ -15,7 +15,6 @@ RSpec.describe 'the musicians index page' do
 
   end
 
-
   it 'User Story 5, Parent Children Index' do
 
     visit "/bands/#{@metallica.id}/musicians"
@@ -58,4 +57,37 @@ RSpec.describe 'the musicians index page' do
     expect(page).to have_content(@beatles.name)
   end
 
+
+  it 'User Story 16, Sort Parents Children in Alphabetical Order by name' do
+    visit "/bands/#{@metallica.id}/musicians"
+
+    within(".index-0") do
+      expect(page).to have_content(@cliff.name)
+    end
+    within(".index-1") do
+      expect(page).to have_content(@james.name)
+    end
+    within(".index-2") do
+      expect(page).to have_content(@kirk.name)
+    end
+    within(".index-3") do
+      expect(page).to have_content(@lars.name)
+    end
+  end
+
+  it 'User Story 18, Child Update from Childs Index Page' do
+    visit "/bands/#{@metallica.id}/musicians"
+
+    within("#musician-#{@cliff.id}") do
+      click_link "edit musician"
+      expect(current_path).to eq("/musicians/#{@cliff.id}/edit")
+    end
+
+    visit "/bands/#{@metallica.id}/musicians"
+
+    within("#musician-#{@lars.id}") do
+      click_link "edit musician"
+      expect(current_path).to eq("/musicians/#{@lars.id}/edit")
+    end
+  end
 end

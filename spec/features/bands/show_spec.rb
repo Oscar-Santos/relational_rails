@@ -47,11 +47,7 @@ RSpec.describe 'Band show action' do
     expect(page).to have_link("Musicians Index")
     click_link "Musicians Index"
     # save_and_open_page
-
-    expect(page).to have_content(@john.name)
-    expect(page).to have_content(@george.name)
-    expect(page).to have_content(@paul.name)
-    expect(page).to have_content(@ringo.name)
+    expect(current_path).to eq("/musicians")
   end
 
   it 'User Story 9, Parent Index Link' do

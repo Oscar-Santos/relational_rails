@@ -42,10 +42,7 @@ RSpec.describe 'the bands index page' do
     expect(page).to have_link("Musicians Index")
     click_link "Musicians Index"
     # save_and_open_page
-
-    expect(page).to have_content(@angus.name)
-    expect(page).to have_content(@john.name)
-    expect(page).to have_content(@cliff.name)
+    expect(current_path).to eq("/musicians")
   end
 
   it 'User Story 9, Parent Index Link' do
@@ -58,6 +55,36 @@ RSpec.describe 'the bands index page' do
     expect(page).to have_content(@band_1.name)
     expect(page).to have_content(@band_2.name)
     expect(page).to have_content(@band_3.name)
+  end
+
+  it 'User Story 17, Parent Update from Parent Index Page' do
+    visit "/bands"
+
+    within("#band-0") do
+      expect(page).to have_link("edit band")
+      click_link "edit band"
+
+      expect(current_path).to eq("/bands/#{@band_3.id}/edit")
+    end
+
+    visit "/bands"
+
+    within("#band-1") do
+      expect(page).to have_link("edit band")
+      click_link "edit band"
+
+      expect(current_path).to eq("/bands/#{@band_2.id}/edit")
+    end
+
+    visit "/bands"
+
+    within("#band-2") do
+      expect(page).to have_link("edit band")
+      click_link "edit band"
+
+      expect(current_path).to eq("/bands/#{@band_1.id}/edit")
+    end
+
   end
 
 end

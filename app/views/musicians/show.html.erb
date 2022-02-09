@@ -1,8 +1,9 @@
-<p><a href="/musicians">Musicians Index</a> | <a href="/bands">Bands Index</a></p>
 <h1><%= @musician.name %></h1>
 <h2><%= @musician.instrument %> - <%= @musician.band.name %></h2>
 <h3>Born in <%= @musician.born %></h3>
 <h3>Founding Member: <%= @musician.founding_member %></h3>
+
+<p><a href=<%= "/musicians/#{@musician.id}/edit" %>>Edit Musician</a></p>
 
 <p>record #<%= @musician.id %>
 <p>record created <%= @musician.created_at %></p>
