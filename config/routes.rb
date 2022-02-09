@@ -8,13 +8,13 @@ Rails.application.routes.draw do
   get '/musicians/:id', to: 'musicians#show'
   get '/bands/:band_id/musicians', to: 'band_musicians#index'
   get '/chefs' , to: 'chefs#index'
+  get '/chefs/new' , to: 'chefs#new'
   get '/chefs/:id' , to: 'chefs#show'
   get '/entrees' , to: 'entrees#index'
   get '/entrees/:id' , to: 'entrees#show'
   get '/chefs/:chef_id/entrees' , to: 'chefs_entrees#index'
 
   post '/chefs' , to: 'chefs#create'
-  get '/chefs/new' , to: 'chefs#new'
 
   post '/bands', to: 'bands#create'
 
