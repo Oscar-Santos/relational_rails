@@ -3,7 +3,7 @@
 <% Band.sort.each_with_index do |band, index| %>
 <div id="band-<%= index %>">
 <h3><%= band.name %></h3>
-<p><a href="bands/<%= "#{band.id}" %>/edit">edit band</a></p>
+<p><a href="bands/<%= "#{band.id}" %>/edit">edit band</a> | <%= link_to "delete band", "/bands/#{band.id}", method: :delete %></p>
 <br>
 </div>
 <% end %>

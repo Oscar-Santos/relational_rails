@@ -12,7 +12,7 @@ RSpec.describe 'the bands index page' do
     @angus = @band_3.musicians.create!(name:'Angus Young', instrument:'lead guitar', founding_member:true, born:1955)
   end
 
-  it 'User Story 1, Parent Index' do
+  xit 'User Story 1, Parent Index' do
     visit '/bands'
     # save_and_open_page
 
@@ -21,7 +21,7 @@ RSpec.describe 'the bands index page' do
     expect(page).to have_content(@band_3.name)
   end
 
-  it 'User Story 6, Parent Index sorted by Most Recently Created' do
+  xit 'User Story 6, Parent Index sorted by Most Recently Created' do
     visit '/bands'
     # save_and_open_page
 
@@ -36,7 +36,7 @@ RSpec.describe 'the bands index page' do
     end
   end
 
-  it 'User Story 8, Child Index Link' do
+  xit 'User Story 8, Child Index Link' do
     visit "/bands"
 
     expect(page).to have_link("Musicians Index")
@@ -45,7 +45,7 @@ RSpec.describe 'the bands index page' do
     expect(current_path).to eq("/musicians")
   end
 
-  it 'User Story 9, Parent Index Link' do
+  xit 'User Story 9, Parent Index Link' do
     visit "/bands"
 
     expect(page).to have_link("Bands Index")
@@ -57,7 +57,7 @@ RSpec.describe 'the bands index page' do
     expect(page).to have_content(@band_3.name)
   end
 
-  it 'User Story 17, Parent Update from Parent Index Page' do
+  xit 'User Story 17, Parent Update from Parent Index Page' do
     visit "/bands"
 
     within("#band-0") do
@@ -84,7 +84,48 @@ RSpec.describe 'the bands index page' do
 
       expect(current_path).to eq("/bands/#{@band_1.id}/edit")
     end
-
   end
 
+  it 'User Story 22, Parent Delete from Parent Index Page' do
+    visit "/bands"
+    save_and_open_page
+    expect(page).to have_content(@band_3.name)
+    expect(page).to have_content(@band_2.name)
+    expect(page).to have_content(@band_1.name)
+
+    within("#band-0") do
+      expect(page).to have_link("delete band")
+      click_link "delete band"
+    end
+
+    save_and_open_page
+    expect(current_path).to eq("/bands")
+    expect(page).to_not have_content(@band_3.name)
+    expect(page).to have_content(@band_2.name)
+    expect(page).to have_content(@band_1.name)
+
+
+    within("#band-0") do
+      expect(page).to have_link("delete band")
+      click_link "delete band"
+    end
+
+    save_and_open_page
+    expect(current_path).to eq("/bands")
+    expect(page).to_not have_content(@band_3.name)
+    expect(page).to_not have_content(@band_2.name)
+    expect(page).to have_content(@band_1.name)
+
+
+    within("#band-0") do
+      expect(page).to have_link("delete band")
+      click_link "delete band"
+    end
+
+    expect(current_path).to eq("/bands")
+    save_and_open_page
+    expect(page).to_not have_content(@band_3.name)
+    expect(page).to_not have_content(@band_2.name)
+    expect(page).to_not have_content(@band_1.name)
+  end
 end
