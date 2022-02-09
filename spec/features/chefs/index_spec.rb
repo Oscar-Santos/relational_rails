@@ -33,7 +33,7 @@ RSpec.describe 'chef index' do
     chef_3 = Chef.create!(name: 'Lena Rojas', age: 29, is_male: false, years_employed: 8, created_at: 20.seconds.ago)
 
     visit "/chefs"
-
+    
     expect(chef_1.name).to appear_before(chef_2.name)
     expect(chef_2.name).to appear_before(chef_3.name)
   end

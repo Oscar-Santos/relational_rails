@@ -1,7 +1,14 @@
 <%= form_with url: '/chefs', local: true do |form| %>
-  <%= form.text_field :name  %>
-  <%= form.text_field :age  %>
-  <%= form.text_field :is_male  %>
+
+
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :age %>
+  <%= form.text_field :age %>
+  <%= form.label :is_male %>
+  <%= form.text_field :is_male %>
+  <%= form.label :years_employed %>
   <%= form.text_field :years_employed %>
+
   <%= form.submit 'create chef'%>
 <% end  %>

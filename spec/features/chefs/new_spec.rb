@@ -26,7 +26,7 @@ RSpec.describe 'wip' do
 
     expect(current_path).to eq('/chefs/new')
     # When I fill out the form with a new parent's attributes:
-
+    
     fill_in(:name, with: "Jose")
 
     fill_in(:age, with: "32")
