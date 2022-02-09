@@ -28,5 +28,6 @@ Rails.application.routes.draw do
   patch '/musicians/:id', to: 'musicians#update'
 
   delete '/bands/:id', to: 'bands#destroy'
+  delete '/musicians/:id', to: 'musicians#destroy'
 
 end

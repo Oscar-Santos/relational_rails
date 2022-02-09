@@ -27,6 +27,11 @@ class MusiciansController < ApplicationController
     redirect_to "/musicians/#{params[:id]}"
   end
 
+  def destroy
+    Musician.find(params[:id]).destroy
+    redirect_to '/musicians'
+  end
+
   private
 
     def musician_params
