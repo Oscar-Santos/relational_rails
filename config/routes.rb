@@ -27,4 +27,6 @@ Rails.application.routes.draw do
   get '/musicians/:id/edit', to: 'musicians#edit'
   patch '/musicians/:id', to: 'musicians#update'
 
+  delete '/bands/:id', to: 'bands#destroy'
+
 end
