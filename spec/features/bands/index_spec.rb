@@ -66,7 +66,7 @@ RSpec.describe 'the bands index page' do
 
       expect(current_path).to eq("/bands/#{@band_3.id}/edit")
     end
-    
+
     visit "/bands"
 
     within("#band-1") do

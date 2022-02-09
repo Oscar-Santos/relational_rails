@@ -1,9 +1,10 @@
 <h1><%= @band.name %> Members</h1>
 <br>
 <% @band.sort_members.each_with_index do |musician, index| %>
-<div id="musician-<%= index %>">
+<div class="index-<%= index %>" id="musician-<%= musician.id %>">
 <h2><%= musician.name %></h2>
 <h3><%= musician.instrument %></h3>
+<p><a href="/musicians/<%= musician.id %>/edit">edit musician</a></p>
 <br>
 </div>
 <% end %>

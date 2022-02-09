@@ -58,4 +58,21 @@ RSpec.describe 'the musicians index page' do
     expect(page).to_not have_content(@cliff.name)
     expect(page).to_not have_content(@kirk.name)
   end
+
+  it 'User Story 18, Child Update from Childs Index Page' do
+    visit "/musicians"
+
+    within("#musician-#{@angus.id}") do
+      click_link "edit musician"
+
+      expect(current_path).to eq("/musicians/#{@angus.id}/edit")
+    end
+
+    visit "/musicians"
+
+    within("#musician-#{@bon.id}") do
+      click_link "edit musician"
+      expect(current_path).to eq("/musicians/#{@bon.id}/edit")
+    end
+  end
 end
