@@ -14,25 +14,18 @@ RSpec.describe 'the delete band feature' do
   it 'User Story 19, Parent Delete' do
     visit "/bands/#{@acdc.id}"
 
-    save_and_open_page
-
     click_link "Delete Band"
 
     expect(current_path).to eq("/bands")
-
-    save_and_open_page
 
     expect(page).to_not have_content(@acdc.name)
     expect(page).to have_content(@metallica.name)
 
     click_link "Musicians Index"
 
-    save_and_open_page
-
     expect(page).to_not have_content(@angus.name)
     expect(page).to_not have_content(@bon.name)
     expect(page).to have_content(@james.name)
     expect(page).to have_content(@lars.name)
-
   end
 end

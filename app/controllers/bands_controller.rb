@@ -26,7 +26,7 @@ class BandsController < ApplicationController
 
   def destroy
     band = Band.find(params[:id])
-    band.musicians.each { |musician| musician.destroy }
+    band.musicians.destroy_all
     band.destroy
     redirect_to '/bands'
   end
