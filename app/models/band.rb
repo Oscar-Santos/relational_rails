@@ -3,15 +3,19 @@ class Band < ApplicationRecord
   validates_presence_of :name
 
   def self.sort
-    # order("updated_at desc").pluck(:name)
     order("updated_at desc")
   end
 
-  # def self.sort_members(band)
-  #   band.musicians.order(:name)
-  # end
   def sort_members
     self.musicians.order(:name)
+  end
+
+  def filter(year = nil)
+    if year != nil && year != ""
+      self.musicians.where("born < #{year}").order(:name)
+    else
+      self.musicians.order(:name)
+    end
   end
 
 end

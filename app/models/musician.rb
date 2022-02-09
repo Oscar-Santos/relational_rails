@@ -10,3 +10,4 @@ class Musician < ApplicationRecord
     where(founding_member: true)
   end
 end
+ 
