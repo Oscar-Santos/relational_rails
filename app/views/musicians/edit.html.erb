@@ -1,0 +1,17 @@
+<h1>Editing <%= @musician.name %></h1>
+
+<%= form_with url: "/musicians/#{@musician.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name, "Name: " %>
+  <%= form.text_field :name, placeholder: "#{@musician.name}" %>
+  <br>
+  <%= form.label :instrument, "Instrument: " %>
+  <%= form.text_field :instrument, placeholder: "#{@musician.instrument}" %>
+  <br>
+  <%= form.label :founding_member, "Founding Member? " %>
+  <%= form.text_field :founding_member, placeholder: "#{@musician.founding_member}" %>
+  <br>
+  <%= form.label :born, "Year Born: " %>
+  <%= form.text_field :born, placeholder: "#{@musician.born}" %>
+  <br>
+  <%= form.submit "Update Musician" %>
+<% end %>

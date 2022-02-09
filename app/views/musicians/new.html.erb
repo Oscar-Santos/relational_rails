@@ -1,0 +1,17 @@
+<h1>Add a New <%= @band.name %>Musician</h1>
+
+<%= form_with url: "/bands/#{@band.id}/musicians", method: :post, local: true do |form| %>
+  <%= form.label :name, "Musician Name: " %>
+  <%= form.text_field :name %>
+  <br>
+  <%= form.label :instrument, "Instrument: " %>
+  <%= form.text_field :instrument %>
+  <br>
+  <%= form.label :founding_member, "Founding Member? " %>
+  <%= form.text_field :founding_member %>
+  <br>
+  <%= form.label :born, "Year Born: " %>
+  <%= form.text_field :born %>
+  <br>
+  <%= form.submit "Create Musician" %>
+<% end %>
