@@ -4,7 +4,7 @@
   <div id="musician-<%= musician.id %>">
   <h2><%= musician.name %></h2>
   <h3><%= musician.instrument %> - <%= musician.band.name %></h3>
-  <p><a href="/musicians/<%= musician.id %>/edit">edit musician</a></p>
+  <p><a href="/musicians/<%= musician.id %>/edit">edit musician</a> | <%= link_to "delete musician", "/musicians/#{musician.id}", method: :delete %></p>
   <br>
   </div>
 <% end %>

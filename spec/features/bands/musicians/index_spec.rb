@@ -90,4 +90,62 @@ RSpec.describe 'the musicians index page' do
       expect(current_path).to eq("/musicians/#{@lars.id}/edit")
     end
   end
+
+  it 'User Story 23, Child Delete from Childs Index Page' do
+    visit "/bands/#{@metallica.id}/musicians"
+
+    expect(page).to have_content(@cliff.name)
+    expect(page).to have_content(@kirk.name)
+    expect(page).to have_content(@james.name)
+    expect(page).to have_content(@lars.name)
+
+    within("#musician-#{@cliff.id}") do
+      expect(page).to have_link("delete musician")
+      click_link "delete musician"
+    end
+
+    expect(current_path).to eq("/musicians")
+    visit "/bands/#{@metallica.id}/musicians"
+    expect(page).to_not have_content(@cliff.name)
+    expect(page).to have_content(@kirk.name)
+    expect(page).to have_content(@james.name)
+    expect(page).to have_content(@lars.name)
+
+    within("#musician-#{@kirk.id}") do
+      expect(page).to have_link("delete musician")
+      click_link "delete musician"
+    end
+
+    expect(current_path).to eq("/musicians")
+    visit "/bands/#{@metallica.id}/musicians"
+    expect(page).to_not have_content(@cliff.name)
+    expect(page).to_not have_content(@kirk.name)
+    expect(page).to have_content(@james.name)
+    expect(page).to have_content(@lars.name)
+
+    within("#musician-#{@james.id}") do
+      expect(page).to have_link("delete musician")
+      click_link "delete musician"
+    end
+
+    expect(current_path).to eq("/musicians")
+    visit "/bands/#{@metallica.id}/musicians"
+    expect(page).to_not have_content(@cliff.name)
+    expect(page).to_not have_content(@kirk.name)
+    expect(page).to_not have_content(@james.name)
+    expect(page).to have_content(@lars.name)
+
+    within("#musician-#{@lars.id}") do
+      expect(page).to have_link("delete musician")
+      click_link "delete musician"
+    end
+
+    expect(current_path).to eq("/musicians")
+    visit "/bands/#{@metallica.id}/musicians"
+    expect(page).to_not have_content(@cliff.name)
+    expect(page).to_not have_content(@kirk.name)
+    expect(page).to_not have_content(@james.name)
+    expect(page).to_not have_content(@lars.name)
+  end
+
 end
