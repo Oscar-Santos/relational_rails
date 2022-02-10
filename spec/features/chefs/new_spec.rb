@@ -16,7 +16,7 @@ require 'rails_helper'
 # and I am redirected to the Chef Index page where I see the new Chef displayed.
 
 
-RSpec.describe 'wip' do
+RSpec.describe 'chef index page' do
 
   it 'it allows to create a new chef' do
 
