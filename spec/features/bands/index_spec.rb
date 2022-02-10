@@ -84,7 +84,46 @@ RSpec.describe 'the bands index page' do
 
       expect(current_path).to eq("/bands/#{@band_1.id}/edit")
     end
-
   end
 
+  it 'User Story 22, Parent Delete from Parent Index Page' do
+    visit "/bands"
+
+    expect(page).to have_content(@band_3.name)
+    expect(page).to have_content(@band_2.name)
+    expect(page).to have_content(@band_1.name)
+
+    within("#band-0") do
+      expect(page).to have_link("delete band")
+      click_link "delete band"
+    end
+
+    expect(current_path).to eq("/bands")
+    expect(page).to_not have_content(@band_3.name)
+    expect(page).to have_content(@band_2.name)
+    expect(page).to have_content(@band_1.name)
+
+
+    within("#band-0") do
+      expect(page).to have_link("delete band")
+      click_link "delete band"
+    end
+
+    expect(current_path).to eq("/bands")
+    expect(page).to_not have_content(@band_3.name)
+    expect(page).to_not have_content(@band_2.name)
+    expect(page).to have_content(@band_1.name)
+
+
+    within("#band-0") do
+      expect(page).to have_link("delete band")
+      click_link "delete band"
+    end
+
+    expect(current_path).to eq("/bands")
+
+    expect(page).to_not have_content(@band_3.name)
+    expect(page).to_not have_content(@band_2.name)
+    expect(page).to_not have_content(@band_1.name)
+  end
 end

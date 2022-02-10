@@ -1,10 +1,17 @@
 <h1><%= @band.name %> Members</h1>
 <br>
-<% @band.sort_members.each_with_index do |musician, index| %>
+<%= form_with url: "/bands/#{@band.id}/musicians", method: :get, local: true do |form| %>
+  <%= form.label :filter, "Year: " %>
+  <%= form.text_field :filter %>
+  <br>
+  <%= form.submit "Only show members born before this year" %>
+<% end %>
+<br>
+<% @band.filter(@year).each_with_index do |musician, index| %>
 <div class="index-<%= index %>" id="musician-<%= musician.id %>">
 <h2><%= musician.name %></h2>
 <h3><%= musician.instrument %></h3>
-<p><a href="/musicians/<%= musician.id %>/edit">edit musician</a></p>
+<p><a href="/musicians/<%= musician.id %>/edit">edit musician</a> | <%= link_to "delete musician", "/musicians/#{musician.id}", method: :delete %></p>
 <br>
 </div>
 <% end %>

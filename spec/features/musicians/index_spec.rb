@@ -75,4 +75,29 @@ RSpec.describe 'the musicians index page' do
       expect(current_path).to eq("/musicians/#{@bon.id}/edit")
     end
   end
+
+  it 'User Story 23, Child Delete from Childs Index Page' do
+    visit "/musicians"
+
+    expect(page).to have_content(@angus.name)
+    expect(page).to have_content(@bon.name)
+
+    within("#musician-#{@angus.id}") do
+      expect(page).to have_link("delete musician")
+      click_link "delete musician"
+    end
+
+    expect(current_path).to eq("/musicians")
+    expect(page).to_not have_content(@angus.name)
+    expect(page).to have_content(@bon.name)
+
+    within("#musician-#{@bon.id}") do
+      expect(page).to have_link("delete musician")
+      click_link "delete musician"
+    end
+
+    expect(current_path).to eq("/musicians")
+    expect(page).to_not have_content(@angus.name)
+    expect(page).to_not have_content(@bon.name)
+  end
 end
